@@ -16,3 +16,7 @@ user1 = User.create(first_name: "Tom", last_name: "Hanks", username: "Mr. Banks"
 user2 = User.create(first_name: "Robert", last_name: "De Niro", username: "Bob", email: "robert@dinero", password_digest: "123")
 user3 = user1 = User.create(first_name: "Leonardo", last_name: "DiCaprio", username: "Leo", email: "leo@dicaprio.com", password_digest: "123")
 user4 = User.create(first_name: "Harrison", last_name: "Ford", username: "Indy", email: "harrison@ford.com", password_digest: "123")
+
+wonder_woman = Movie.create(movie_id: 464052)
+
+review1 = Review.create(body: "I saw this movie last Saturday. I was not impressed.", rating: 2, user_id: user1.id, movie_id: wonder_woman.id)
