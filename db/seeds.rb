@@ -22,9 +22,11 @@ soul = Movie.create(title: "Soul", poster: "/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg", m
 
 review1 = Review.create(body: "I saw this movie last Saturday. I was not impressed.", rating: 2, user_id: user1.id, movie_id: wonder_woman.id)
 review2 = Review.create(body: "It was another charming movie from Pixar", rating: 4, user_id: user3.id, movie_id: soul.id)
+review3 = Review.create(body: "The first one was good, but this one was terrible", rating: 1, user_id: user4.id, movie_id: wonder_woman.id)
 
 
 Friendship.create(follower_id: user2.id, followee_id: user1.id)
+Friendship.create(follower_id: user2.id, followee_id: user3.id)
 Friendship.create(follower_id: user3.id, followee_id: user4.id)
 Friendship.create(follower_id: user3.id, followee_id: user1.id)
 
