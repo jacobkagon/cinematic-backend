@@ -9,6 +9,12 @@ class Api::V1::ReviewsController < ApplicationController
         render json: @review
     end
 
+    def followee_reviews
+       followee_reviews = Review.find_followee_reviews(current_user.followee_ids)
+       render json: followee_reviews
+
+    end
+
     def destroy
         @review = Review.find(params[:id])
         @review.delete

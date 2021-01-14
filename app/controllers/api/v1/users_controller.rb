@@ -22,33 +22,30 @@ class Api::V1::UsersController < ApplicationController
     def follow_unfollow_user
         if current_user.followees.exists?(params[:id])
           current_user.followed_users.find_by(followee_id: params[:id]).destroy()
-          is_following = false
         else
           user = User.find(params[:id])
           current_user.followees << user
-          is_following = true
         end
+    end 
 
-        def profile
-            render json: { user: UserSerializer.new(current_user) }, status: :accepted
-        end
+    def profile
+        render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    end
     
-        render json: { is_following: is_following }, status: :ok
-      end
 
       def followers
         user = User.find(params[:id])
-        render json: user.followers, status: :ok
+        render json: user.followers
       end
     
       def following
         user = User.find(params[:id])
-        render json: user.followees, status: :ok
+        render json: user.followees
       end
       private 
 
       def user_params
-        params.require(:user).permit(:username, :password, :email)
+        params.require(:user).permit(:first_name, :Last_name, :username, :password, :email)
     end
 
 end

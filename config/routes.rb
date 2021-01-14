@@ -9,7 +9,11 @@ Rails.application.routes.draw do
       get "/following/:id", to: "users#following"
       get '/profile', to: 'users#profile'
 
+      get '/watchlists/:id', to: 'watchlists#show'
+      get '/user_watchlist/:user_id', to: 'watchlists#user_watchlist'
+
       resource :reviews, only: [:index, :create]
+      get "/followee_reviews", to: "reviews#followee_reviews"
       resource :movies, only: [:index, :create, :show]
 
     end
