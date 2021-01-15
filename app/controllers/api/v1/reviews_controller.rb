@@ -12,7 +12,11 @@ class Api::V1::ReviewsController < ApplicationController
     def followee_reviews
        followee_reviews = Review.find_followee_reviews(current_user.followee_ids)
        render json: followee_reviews
+    end
 
+    def movie_reviews
+        movie_reviews = Review.where(movie_id: params[:movie_id])
+        render json: movie_reviews
     end
 
     def destroy

@@ -1,7 +1,6 @@
 class Api::V1::MoviesController < ApplicationController
     def index
         @movies = Movie.all
-
         render json: @movies
     end 
 
@@ -13,7 +12,7 @@ class Api::V1::MoviesController < ApplicationController
 
     def create
         @movie = Movie.new(movie_params)
-     if movie.find_by(movie_id: params[:movie_id])
+     if Movie.find_by(movie_id: params[:movie_id])
            render json: { error: 'failed to create movie' }, status: :not_acceptable
          else
           @movie.save
@@ -29,6 +28,6 @@ class Api::V1::MoviesController < ApplicationController
     end
 
     def movie_params
-        params.require(:movie).permit(:movie_id)
+        params.require(:movie).permit(:movie_id, :title, :poster)
     end
 end

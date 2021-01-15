@@ -12,9 +12,11 @@ Rails.application.routes.draw do
       get '/watchlists/:id', to: 'watchlists#show'
       get '/user_watchlist/:user_id', to: 'watchlists#user_watchlist' #use this to fetch user's watchlist
 
-      resource :reviews, only: [:index, :create]
+     get '/reviews', to: 'reviews#index'
+     get '/movie_reviews/:movie_id', to: 'reviews#movie_reviews'
       get "/followee_reviews", to: "reviews#followee_reviews" #use this to get a list of a user's followee's reviews
-      resource :movies, only: [:index, :create, :show]
+      get '/movies', to: 'movies#index'
+      post '/movies', to: 'movies#create'
 
     end
   end
