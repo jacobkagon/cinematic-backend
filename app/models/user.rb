@@ -10,11 +10,4 @@ class User < ApplicationRecord
     validates :email, :username, uniqueness: true, presence: true
     validates :first_name, :last_name, presence: true
 
-    def followee_ids
-        self.followees.map(&:id)
-      end
-    
-      def follower_ids
-        self.followers.map(&:id)
-      end
 end

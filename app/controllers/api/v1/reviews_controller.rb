@@ -15,7 +15,7 @@ class Api::V1::ReviewsController < ApplicationController
     end
 
     def movie_reviews
-        movie_reviews = Review.where(movie_id: params[:movie_id])
+        movie_reviews = Review. movie_reviews(params[:movie_id])
         render json: movie_reviews
     end
 
@@ -29,4 +29,5 @@ class Api::V1::ReviewsController < ApplicationController
    def review_params
     params.require(:review).permit(:body, :user_id, :movie_id, :rating)
    end
+
 end

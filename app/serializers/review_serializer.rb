@@ -1,5 +1,5 @@
 class ReviewSerializer < ActiveModel::Serializer
-  attributes :id, :body, :rating
+  attributes :id, :body, :rating, :user, :movie
 
 
 end

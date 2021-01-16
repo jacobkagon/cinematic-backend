@@ -20,6 +20,21 @@ class Api::V1::MoviesController < ApplicationController
          end
     end
 
+    def find_movie
+        movie = Movie.find_by(movie_id: params[:movie_id])
+        render json: movie
+    end
+
+    def movie_reviews
+        #this is to get all the reviews for a particular movie
+        movie = Movie.find_by(movie_id: params[:movie_id])
+        if movie.present?
+           render json: movie.reviews
+        else 
+            render json: {error: 'movie does not have reviews'}, status: :not_acceptable
+        end
+    end
+
 
     private
 
