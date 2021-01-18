@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
-      get '/users', to: "users#index"
-      get '/users/:id', to: 'users#show'
-      post "/users", to: "users#create"
+      resources :users, only: [:index, :show, :create]
       get "/followers/:id", to: "users#followers"
       get "/following/:id", to: "users#following"
       get '/profile', to: 'users#profile'
@@ -20,6 +18,8 @@ Rails.application.routes.draw do
       get '/movies', to: 'movies#index'
       post '/movies', to: 'movies#create'
       get '/find_movie/:movie_id', to: 'movies#find_movie'
+      post '/login', to: 'auth#create'
+      get '/profile', to: 'users#profile'
 
     end
   end

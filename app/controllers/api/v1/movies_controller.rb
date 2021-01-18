@@ -1,9 +1,10 @@
 class Api::V1::MoviesController < ApplicationController
+
+    skip_before_action :authorized, only: [:find_movie, :create, :movie_reviews]
     def index
         @movies = Movie.all
         render json: @movies
     end 
-
 
     def show
         movie = Movie.find(params[:id])

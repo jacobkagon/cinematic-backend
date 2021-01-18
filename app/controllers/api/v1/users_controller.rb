@@ -1,4 +1,8 @@
 class Api::V1::UsersController < ApplicationController
+
+  
+skip_before_action :authorized, only: [:index, :show, :create]
+
     def index
         @users = User.all
         render json: @users
@@ -10,14 +14,15 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-        @user = User.create(user_params)
-        if @user.valid?
-          @token = encode_token({ user_id: @user.id })
-          render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
-        else
-          render json: { error: 'failed to create user' }, status: :not_acceptable
-        end
+      @user = User.create(user_params)
+      if @user.valid?
+        @token = encode_token({ user_id: @user.id })
+        render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
+      else
+        render json: { error: 'failed to create user' }, status: :not_acceptable
       end
+    end
+
 
     def follow_unfollow_user
         if current_user.followees.exists?(params[:id])
@@ -31,7 +36,6 @@ class Api::V1::UsersController < ApplicationController
     def profile
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end
-    
 
       def followers
         user = User.find(params[:id])
@@ -45,7 +49,7 @@ class Api::V1::UsersController < ApplicationController
       private 
 
       def user_params
-        params.require(:user).permit(:first_name, :Last_name, :username, :password, :email)
+        params.require(:user).permit(:first_name, :last_name, :username, :password, :email)
     end
 
 end
