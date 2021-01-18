@@ -1,5 +1,7 @@
 class Api::V1::WatchlistsController < ApplicationController
 
+    skip_before_action :authorized, only: [:user_watchlist]
+
     def index 
         @watchlists = Watchlist.all
         render json :watchlist
@@ -12,7 +14,7 @@ class Api::V1::WatchlistsController < ApplicationController
 
     def user_watchlist
         #only want to get watchlist for user id
-        watchlist = Watchlist.find_user_watchlist(current_user)
+        watchlist = Watchlist.find_user_watchlist(params[:user_id])
         render json: watchlist
     end
 

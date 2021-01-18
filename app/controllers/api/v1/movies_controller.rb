@@ -30,7 +30,8 @@ class Api::V1::MoviesController < ApplicationController
         #this is to get all the reviews for a particular movie
         movie = Movie.find_by(movie_id: params[:movie_id])
         if movie.present?
-           render json: movie.reviews
+            reviews = movie.reviews
+           render json: reviews.order(created_at: :desc)
         else 
             render json: {error: 'movie does not have reviews'}, status: :not_acceptable
         end

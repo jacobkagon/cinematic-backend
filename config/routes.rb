@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
       get '/watchlists/:id', to: 'watchlists#show'
       get '/user_watchlist/:user_id', to: 'watchlists#user_watchlist' #use this to fetch user's watchlist
+      post '/watchlist', to: 'watchlists#create'
 
      get '/reviews', to: 'reviews#index'
      post '/reviews', to: 'reviews#create'
