@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       get '/find_movie/:movie_id', to: 'movies#find_movie'
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
+      delete '/reviews/:id', to: 'reviews#destroy'
+      delete '/watchlist/:id',  to: 'watchlists#destroy'
 
     end
   end

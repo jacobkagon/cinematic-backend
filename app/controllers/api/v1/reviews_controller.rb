@@ -23,7 +23,7 @@ class Api::V1::ReviewsController < ApplicationController
 
     def destroy
         @review = Review.find(params[:id])
-        @review.delete
+        @review.destroy
     end
 
    private

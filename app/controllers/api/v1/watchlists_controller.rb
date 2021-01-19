@@ -19,8 +19,18 @@ class Api::V1::WatchlistsController < ApplicationController
     end
 
     def create
-        watchlist = Watchlist.create(watchlist_params)
-       render json: watchlist
+        watchlist = Watchlist.new(watchlist_params)
+        if Watchlist.find_by(movie_id: params[:movie_id], user_id: params[:user_id])
+            render json: {error: "Movie is already in user watchlist"}, status: :not_acceptable
+        else
+            watchlist.save
+            render json: watchlist
+        end
+    end
+
+    def destroy
+        @watchlist = Watchlist.find(params[:id])
+        @watchlist.delete
     end
 
 
