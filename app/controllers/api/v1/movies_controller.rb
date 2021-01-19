@@ -1,6 +1,6 @@
 class Api::V1::MoviesController < ApplicationController
 
-    skip_before_action :authorized, only: [:find_movie, :create, :movie_reviews]
+    skip_before_action :authorized, only: [:index, :find_movie, :create, :movie_reviews]
     def index
         @movies = Movie.all
         render json: @movies
@@ -13,7 +13,7 @@ class Api::V1::MoviesController < ApplicationController
 
     def create
         @movie = Movie.new(movie_params)
-     if Movie.find_by(movie_id: params[:movie_id])
+         if Movie.find_by(movie_id: params[:movie_id])
            render json: { error: 'failed to create movie' }, status: :not_acceptable
          else
           @movie.save

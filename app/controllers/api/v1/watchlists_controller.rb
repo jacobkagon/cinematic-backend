@@ -20,7 +20,9 @@ class Api::V1::WatchlistsController < ApplicationController
 
     def create
         watchlist = Watchlist.create(watchlist_params)
+       render json: watchlist
     end
+
 
     private
 
