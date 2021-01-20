@@ -24,15 +24,6 @@ skip_before_action :authorized, only: [:create]
     end
 
 
-    def follow_unfollow_user
-        if current_user.followees.exists?(params[:id])
-          current_user.followed_users.find_by(followee_id: params[:id]).destroy()
-        else
-          user = User.find(params[:id])
-          current_user.followees << user
-        end
-    end 
-
     def profile
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end

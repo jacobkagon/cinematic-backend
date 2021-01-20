@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :users, only: [:index, :show, :create]
+      resources :friendships, only: [:create]
       get "/followers/:id", to: "users#followers"
       get "/following/:id", to: "users#following"
       get '/profile', to: 'users#profile'
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
       get '/watchlists/:id', to: 'watchlists#show'
       get '/user_watchlist/:user_id', to: 'watchlists#user_watchlist' #use this to fetch user's watchlist
       post '/watchlist', to: 'watchlists#create'
+      post '/follow/:id', to: 'users#follow_user' #use to follow another user
 
      get '/reviews', to: 'reviews#index'
      post '/reviews', to: 'reviews#create'
