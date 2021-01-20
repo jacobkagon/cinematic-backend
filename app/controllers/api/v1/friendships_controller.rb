@@ -10,6 +10,11 @@ class Api::V1::FriendshipsController < ApplicationController
           end
     end
 
+    def destroy
+        friend = Friendship.find_by(followee_id: params[:followee_id], follower_id: params[:follower_id])
+        friend.delete
+    end
+
     private
 
     def friendship_params
