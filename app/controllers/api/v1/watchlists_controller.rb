@@ -29,7 +29,7 @@ class Api::V1::WatchlistsController < ApplicationController
     end
 
     def destroy
-        @watchlist = Watchlist.find_by(user_id: params [:user_id], movie_id: params [:movie_id])
+        @watchlist = Watchlist.find_by(user_id: params[:user_id], movie_id: params[:movie_id])
         @watchlist.delete
     end
 

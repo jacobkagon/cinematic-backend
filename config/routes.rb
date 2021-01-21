@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
       delete '/reviews/:id', to: 'reviews#destroy'
       delete '/watchlist/:user_id/:movie_id',  to: 'watchlists#destroy'
-      delete '/friendships/:followee_id/:follower_id', to: 'friendships#destroy'
+      delete '/friendships/:follower_id/:followee_id', to: 'friendships#destroy'
       
 
     end
