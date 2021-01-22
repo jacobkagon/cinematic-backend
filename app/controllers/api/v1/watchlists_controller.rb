@@ -15,7 +15,7 @@ class Api::V1::WatchlistsController < ApplicationController
     def user_watchlist
         #only want to get watchlist for user id
         watchlist = Watchlist.find_user_watchlist(params[:user_id])
-        render json: watchlist
+        render json: watchlist.order(created_at: :asc)
     end
 
     def create
