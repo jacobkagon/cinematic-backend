@@ -12,10 +12,10 @@ Review.destroy_all
 Watchlist.destroy_all
 Movie.destroy_all
 
-user1 = User.create(first_name: "Tom", last_name: "Hanks", username: "Mr. Banks", email: "tom@hanks.com", password_digest: "123")
-user2 = User.create(first_name: "Robert", last_name: "De Niro", username: "Bob", email: "robert@dinero", password_digest: "123")
-user3 = User.create(first_name: "Leonardo", last_name: "DiCaprio", username: "Leo", email: "leo@dicaprio.com", password_digest: "123")
-user4 = User.create(first_name: "Harrison", last_name: "Ford", username: "Indy", email: "harrison@ford.com", password_digest: "123")
+user1 = User.create(first_name: "Tom", last_name: "Hanks", username: "Tom Hanks", email: "tom@hanks.com", password_digest: "123")
+user2 = User.create(first_name: "Robert", last_name: "De Niro", username: "Rober De Niro", email: "robert@dinero", password_digest: "123")
+user3 = User.create(first_name: "Leonardo", last_name: "DiCaprio", username: "Leonardo DiCaprio", email: "leo@dicaprio.com", password_digest: "123")
+user4 = User.create(first_name: "Harrison", last_name: "Ford", username: "Harrison Ford", email: "harrison@ford.com", password_digest: "123")
 
 wonder_woman = Movie.create(title: "Wonder Woman 1984", poster: "/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg", movie_id: 464052)
 soul = Movie.create(title: "Soul", poster: "/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg", movie_id: 508442)
