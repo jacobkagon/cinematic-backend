@@ -6,5 +6,9 @@ class Watchlist < ApplicationRecord
         Watchlist.where(user_id: id)
     end
 
+    def self.find_followee_watchlist(id) 
+        Watchlist.where(user_id: id)
+    end
+
 
 end

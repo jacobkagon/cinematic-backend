@@ -18,6 +18,11 @@ class Api::V1::WatchlistsController < ApplicationController
         render json: watchlist.order(created_at: :asc)
     end
 
+    def followee_watchlists
+        followee_watchlist = Watchlist.find_followee_watchlist(current_user.followee_ids)
+        render json: followee_watchlist.uniq { |p| p.movie }
+    end
+
     def create
         watchlist = Watchlist.new(watchlist_params)
         if Watchlist.find_by(movie_id: params[:movie_id], user_id: params[:user_id])
