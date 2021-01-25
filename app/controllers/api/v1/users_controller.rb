@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
   
-skip_before_action :authorized, only: [:create]
+skip_before_action :authorized, only: [:user_reviews, :create]
 
     def index
         @users = User.all
@@ -28,6 +28,11 @@ skip_before_action :authorized, only: [:create]
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end
 
+    def user_reviews
+      @user = User.find(params[:id])
+      render json: @user.reviews 
+    end
+
       def followers
         user = User.find(params[:id])
         render json: user.followers
@@ -38,6 +43,8 @@ skip_before_action :authorized, only: [:create]
         render json: user.followees
       end
       private 
+
+  
 
       def user_params
         params.require(:user).permit(:first_name, :last_name, :username, :password, :email)
