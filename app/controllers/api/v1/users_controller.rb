@@ -30,7 +30,7 @@ skip_before_action :authorized, only: [:user_reviews, :create]
 
     def user_reviews
       @user = User.find(params[:id])
-      render json: @user.reviews 
+      render json: @user.reviews.order(created_at: :desc)
     end
 
       def followers
