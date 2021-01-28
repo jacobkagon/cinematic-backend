@@ -13,7 +13,7 @@ class Api::V1::ReviewsController < ApplicationController
 
     def followee_reviews
        followee_reviews = Review.find_followee_reviews(current_user.followee_ids)
-       render json: followee_reviews
+       render json: followee_reviews.order(created_at: :desc)
     end
 
     def movie_reviews
