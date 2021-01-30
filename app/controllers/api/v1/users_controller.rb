@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
   
-skip_before_action :authorized, only: [:user_reviews, :create]
+skip_before_action :authorized, only: [:user_reviews, :create, :update]
 
     def index
         @users = User.all
@@ -31,6 +31,12 @@ skip_before_action :authorized, only: [:user_reviews, :create]
     def user_reviews
       @user = User.find(params[:id])
       render json: @user.reviews.order(created_at: :desc)
+    end
+
+    def update
+      new_user = User.find(params[:id])
+      new_user.update(user_params)
+      render json: new_user
     end
 
       def followers
