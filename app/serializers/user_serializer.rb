@@ -1,11 +1,9 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :user_id, :first_name, :last_name, :username, :followers, :followees, :reviews, :watchlists, :followers_count, :followee_count
- 
+  attributes :id, :first_name, :last_name, :username, :reviews, :watchlists, :followers_count, :followee_count, :followers, :followees
+
   def followers_count
     object.followers.count
   end
-
-
 
   
   def followee_count
