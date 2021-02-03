@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :user_id, :first_name, :last_name, :username, :followers(exclude: [:password_digest]), :followees(exclude: [:password]), :reviews, :watchlists, :followers_count, :followee_count
+  attributes :user_id, :first_name, :last_name, :username, :followers(exclude: [:password_digest]), :followees, :reviews, :watchlists, :followers_count, :followee_count
  
 
 
