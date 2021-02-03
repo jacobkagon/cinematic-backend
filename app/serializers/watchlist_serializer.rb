@@ -1,4 +1,4 @@
 class WatchlistSerializer < ActiveModel::Serializer
-  attributes :id, :movie
+  attributes :id, :movie, :user
 
 end
