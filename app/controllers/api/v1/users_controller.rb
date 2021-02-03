@@ -41,12 +41,12 @@ skip_before_action :authorized, only: [:user_reviews, :create, :update, :show]
 
       def followers
         user = User.find(params[:id])
-        render json: user.followers(only: [:id, :first_name, :last_name, :username])
+        render json: user.followers
       end
     
       def following
         user = User.find(params[:id])
-        render json: user.followees(only: [:id, :first_name, :last_name, :username])
+        render json: user.followees
       end
       private 
 
