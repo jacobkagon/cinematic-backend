@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     
      get '/reviews', to: 'reviews#index'
      get '/profile', to: 'users#profile'
-     patch '/review/:id', to: 'reviews#update'
+    #  patch '/review/:id', to: 'reviews#update'
      get '/movie_review/:movie_id', to: 'movies#movie_reviews' #get all reviews for a movie
      get '/movie_reviews/:movie_id', to: 'reviews#movie_reviews' # use this to just get a specific movie based on their TMDB id
      get "/followee_reviews", to: "reviews#followee_reviews" #use this to get a list of a user's followee's reviews

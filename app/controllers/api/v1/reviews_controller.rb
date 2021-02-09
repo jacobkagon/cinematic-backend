@@ -21,11 +21,11 @@ class Api::V1::ReviewsController < ApplicationController
         render json: movie_reviews
     end
 
-    def update 
-        @movie = Review.find(params[:id])
-        @movie.update(review_params)
-        render json: @movie
-    end
+    # def update 
+    #     @movie = Review.find(params[:id])
+    #     @movie.update(review_params)
+    #     render json: @movie
+    # end
 
     def destroy
         @review = Review.find(params[:id])
