@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       post '/movies', to: 'movies#create'
       post '/follow/:id', to: 'users#follow_user' #use to follow another user
       post '/watchlist', to: 'watchlists#create'
+      post '/like', to: 'likes#create'
 
 
       delete '/reviews/:id', to: 'reviews#destroy'

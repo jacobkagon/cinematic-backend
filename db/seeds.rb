@@ -33,3 +33,5 @@ Friendship.create(follower_id: user3.id, followee_id: user1.id)
 watchlist1 = Watchlist.create(user_id: user2.id, movie_id: soul.id)
 watchlist2 = Watchlist.create(user_id: user1.id, movie_id: wonder_woman.id)
 walchlist3 = Watchlist.create(user_id: user2.id, movie_id: wonder_woman.id)
+
+
